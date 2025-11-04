@@ -1,16 +1,7 @@
 <?php
-session_start();
 
-// O arquivo db.php deve estar configurado para a conexão PostgreSQL PDO
-require_once 'config/db.php';
-
-/*
-// Descomente o bloco abaixo quando o login estiver implementado
-if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
-    exit;
-}
-*/
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../config/db.php';
 
 // Configurações de Debug (Manter apenas durante o desenvolvimento)
 ini_set('display_errors', 1);

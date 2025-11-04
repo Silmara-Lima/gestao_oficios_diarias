@@ -30,3 +30,9 @@ OWNER admin_user;
 # CRUD simples de funcionários
 - O cadastro e edição de funcionários poderá ser feita nessa sessão, digitando nome e matrícula.
 - Há validações AJAX para evitar registros inválidos.
+
+# Login
+- Foi criado o arquivo auth para autenticar os usuários/verificar se o usuário está logado e o logout para sair do sistema
+
+# Dashboard
+- É a "home" para o usuário visualizar as opções de acessar ofícios, acessar diárias, acessar funcionários e configurações
