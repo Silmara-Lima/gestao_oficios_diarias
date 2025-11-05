@@ -1,2 +1,4 @@
 # Arquivos sensíveis
 config/db.php
+
+/vendor/
