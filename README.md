@@ -56,3 +56,15 @@ OWNER admin_user;
 - Há uma parte de pré-visualização para que o usuário confira os dados registrados do ofício
 - Ao final da página estará lista os ofícios, no qual o usuário poderá ver, editar os excluir.
 - Caso o ofício seja excluído, o número sequencial retorna para o número excluído.
+
+# CRUD de diárias
+
+- O número de ofícios é sequencial
+- O usuário deve preencher a data de inicio e fim da solicitação
+- Há um select de municípios, para que seja informado o destino da viagem
+- Há um select de funcionários, mas também pode adicionar um novo caso o funcionário não esteja na lista.
+- Ao adicionar o funcionário, o usuário conseguirá visualizar esse registro na parte de funcionários
+- Há uma parte de pré-visualização para que o usuário confira os dados registrados do ofício
+- Ao final da página estará lista os ofícios, no qual o usuário poderá ver, editar os excluir.
+- Caso o ofício seja excluído, o número sequencial retorna para o número excluído.
+
