@@ -49,12 +49,12 @@ function validarNome($nome) {
     return preg_match('/^[A-ZÀ-Ÿa-zà-ÿ ]+$/', $nome);
 }
 
-function validarMatricula($mat) {
-    return preg_match('/^\d{4}-\d$/', $mat);
+function validarCargo($cargo) {
+    return preg_match('/^[A-ZÀ-Ÿa-zà-ÿ ]+$/', $cargo);
 }
 
-function validarCargo($cargo) {
-    return !empty($cargo) && strlen($cargo) <= 100;
+function validarMatricula($mat) {
+    return preg_match('/^\d{4}-\d$/', $mat);
 }
 
 function getFuncionarios($db) {
@@ -247,6 +247,11 @@ if (isset($_POST['acao'])) {
             
             if (!validarNome($novo_elaborador_nome)) {
                 echo '<div class="alert alert-danger">Nome do novo elaborador inválido. Use apenas letras e espaços.</div>';
+                exit;
+            }
+
+            if (!validarCargo($novo_elaborador_cargo)) {
+                echo '<div class="alert alert-danger">Cargo do novo elaborador inválido. Use apenas letras e espaços.</div>';
                 exit;
             }
             
