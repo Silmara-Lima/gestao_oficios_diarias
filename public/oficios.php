@@ -8,6 +8,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$stmtCfg = $db->query("SELECT cabecalho, rodape FROM configuracoes WHERE id = 1 LIMIT 1");
+$cfg = $stmtCfg->fetch(PDO::FETCH_ASSOC);
+
+$cabecalho_oficio = $cfg['cabecalho'] ?? '';
+$rodape_oficio = $cfg['rodape'] ?? '';
+
 function formatarDataPorExtenso($data_iso) {
     if (empty($data_iso)) {
         return 'Data Inválida';
@@ -737,6 +743,9 @@ $funcionarios_list = getFuncionarios($db);
 
         const oficioHtml = `
         <div class="oficio-header">
+            <div class="oficio-cabecalho" style="text-align:center; margin-bottom:20px; font-size:14px;">
+                <?= nl2br($cabecalho_oficio) ?>
+            </div>
             OFÍCIO Nº ${numero}
             <br>
             ${local}, ${dataPorExtenso}
@@ -770,6 +779,9 @@ $funcionarios_list = getFuncionarios($db);
                 ${nomeElaborador}
                 ${matriculaElaborador ? `<span class="oficio-assinatura-cargo" style="font-size: 11pt;">Matrícula: ${matriculaElaborador}</span>` : ''} 
                 <span class="oficio-assinatura-cargo">${cargoElaborador}</span>
+            </div>
+            <div class="oficio-rodape" style="text-align:center; margin-top:40px; font-size:13px; border-top:1px solid #ccc; padding-top:10px;">
+                <?= nl2br($rodape_oficio) ?>
             </div>
             <br>
         </div>
