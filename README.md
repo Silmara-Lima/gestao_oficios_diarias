@@ -6,6 +6,7 @@
 `CREATE USER admin_user WITH PASSWORD 'Digiteumasenha';`
 
 - Para criar a tabela e o admin ser o administrador dela
+
 ```
 CREATE DATABASE gestao_oficios_diarias
 OWNER admin_user;
@@ -16,6 +17,7 @@ OWNER admin_user;
 `psql -U usuario -d gestao_oficios_diarias -p sua_porta -f sql/municipios_pb.sql`
 
 # Gerar o arquivo db.php
+
 - Esse arquivo terá os paramêtros de conexão do banco
 
 # Para rodar o banco 
@@ -25,13 +27,11 @@ OWNER admin_user;
 `netstat -ano | findstr sua_porta `
 
 # Para conectar ao banco
+
 `\c gestao_oficios_diarias`
 
-# CRUD simples de funcionários
-- O cadastro e edição de funcionários poderá ser feita nessa sessão, digitando nome e matrícula.
-- Há validações AJAX para evitar registros inválidos.
-
 # Login
+
 - Foi criado o arquivo auth para autenticar os usuários/verificar se o usuário está logado e o logout para sair do sistema
 
 # Dashboard

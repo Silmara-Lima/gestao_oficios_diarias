@@ -22,8 +22,10 @@ VALUES ('admin', '$2y$10$e0NR4ddLY8ZVbkP4j6QfQO8VboIpXS/4h05D2qE0HR47ecJxW1dIa',
 -- ===============================
 CREATE TABLE funcionarios (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(120) NOT NULL,
-    matricula VARCHAR(30)
+    nome VARCHAR(150) NOT NULL,
+    matricula VARCHAR(10) UNIQUE,
+    cargo VARCHAR(100), -- Novo campo para o cargo
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 -- ===============================
@@ -41,15 +43,33 @@ VALUES ('', '');
 -- ===============================
 -- OFÍCIOS
 -- ===============================
-CREATE TABLE oficios (
-    id SERIAL PRIMARY KEY,
-    numero INTEGER NOT NULL,
-    assunto TEXT NOT NULL,
-    data_criacao DATE DEFAULT CURRENT_DATE
+CREATE TABLE oficios (    
+    id SERIAL PRIMARY KEY,    
+    
+    ano INT NOT NULL,
+    numero_sequencial INT NOT NULL,
+    numero_completo VARCHAR(15) UNIQUE,   
+    
+    assunto VARCHAR(255) NOT NULL,
+    destinatario VARCHAR(100) NOT NULL,
+    corpo TEXT,    
+    
+    pronome_tratamento VARCHAR(50), 
+    saudacao VARCHAR(50),    
+    
+    data_emissao DATE NOT NULL DEFAULT CURRENT_DATE,    
+    
+    funcionario_id INT NOT NULL,    
+    
+    criado_por_user_id INT,     
+    
+    UNIQUE (ano, numero_sequencial),    
+    
+    CONSTRAINT fk_funcionario
+        FOREIGN KEY (funcionario_id) 
+        REFERENCES funcionarios (id) 
+        ON DELETE RESTRICT
 );
-
--- Garantir que não haja números duplicados
-CREATE UNIQUE INDEX idx_oficios_numero ON oficios(numero);
 
 -- ===============================
 -- DIÁRIAS
