@@ -7,6 +7,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$stmtCfg = $db->query("SELECT cabecalho, rodape FROM configuracoes WHERE id = 1 LIMIT 1");
+$cfg = $stmtCfg->fetch(PDO::FETCH_ASSOC);
+
+$cabecalho_oficio = $cfg['cabecalho'] ?? '';
+$rodape_oficio = $cfg['rodape'] ?? '';
+
 function esc($s){ return htmlspecialchars($s ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
 function formato_data($d){ if (!$d) return ''; $ts = strtotime($d); return $ts ? date('d/m/Y', $ts) : $d; }
 function is_date_ok($d){ if ($d === null || $d === '') return true; return (bool)strtotime($d); }
@@ -273,8 +279,14 @@ try{ $municipios = $db->query("SELECT municipio FROM municipios ORDER BY municip
 
 <div class="modal-bg" id="modalPreview">
     <div class="modal-box">
+        <div class="oficio-cabecalho" style="text-align:center; margin-bottom:20px; font-size:14px;">
+            <?= nl2br($cabecalho_oficio) ?>
+        </div>
         <span class="close" onclick="document.getElementById('modalPreview').style.display='none'">×</span>
         <div id="conteudoPreview" style="white-space:pre-wrap;"></div>
+        <div class="oficio-rodape" style="text-align:center; margin-top:40px; font-size:13px; border-top:1px solid #ccc; padding-top:10px;">
+            <?= nl2br($rodape_oficio) ?>
+        </div>
     </div>
 </div>
 
