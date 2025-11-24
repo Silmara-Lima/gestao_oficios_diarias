@@ -12,14 +12,14 @@ OWNER admin_user;
 ```
 
 # Rodar o schema e municipios_pb
-`psql -U seu_host -d gestao_oficios_diarias -p sua_porta -f sql/schema_postgres.sql`
-`psql -U seu_host -d gestao_oficios_diarias -p sua_porta -f sql/municipios_pb.sql`
+`psql -U usuario -d gestao_oficios_diarias -p sua_porta -f sql/schema_postgres.sql`
+`psql -U usuario -d gestao_oficios_diarias -p sua_porta -f sql/municipios_pb.sql`
 
 # Gerar o arquivo db.php
 - Esse arquivo terá os paramêtros de conexão do banco
 
 # Para rodar o banco 
-`psql -U seu_host -h localhost -p sua_porta`
+`psql -U usuario -h seu_host -p sua_porta`
 
 # Para verificar conexão
 `netstat -ano | findstr sua_porta `
