@@ -68,3 +68,11 @@ OWNER admin_user;
 - Ao final da página estará lista os ofícios, no qual o usuário poderá ver, editar os excluir.
 - Caso o ofício seja excluído, o número sequencial retorna para o número excluído.
 
+# Configuracoes
+
+- permite edição dos cabeçalhos dos ofícios e diárias
+- permite edição dos rodapes dos ofícios e diárias
+- é possivel ver o cabeçalho e rodapé na pré-visualização do modulo oficios
+- é possivel ver o cabeçalho e rodapé na pré-visualização do modulo diárias
+
+
