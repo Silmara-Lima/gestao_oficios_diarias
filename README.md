@@ -2,7 +2,7 @@
 
 - Crie uma pasta chamada 'gestao_oficios_diarias' dentro da pasta htdocs do xampp
 
-# Em seguida no postgre crie o usuário admin e a tabela
+# Em seguida no postgres crie o usuário admin e a tabela
 `CREATE USER admin_user WITH PASSWORD 'Digiteumasenha';`
 
 - Para criar a tabela e o admin ser o administrador dela
@@ -12,17 +12,17 @@ OWNER admin_user;
 ```
 
 # Rodar o schema e municipios_pb
-`psql -U postgres -d gestao_oficios_diarias -p 5434 -f sql/schema_postgres.sql`
-`psql -U postgres -d gestao_oficios_diarias -p 5434 -f sql/municipios_pb.sql`
+`psql -U seu_host -d gestao_oficios_diarias -p sua_porta -f sql/schema_postgres.sql`
+`psql -U seu_host -d gestao_oficios_diarias -p sua_porta -f sql/municipios_pb.sql`
 
 # Gerar o arquivo db.php
 - Esse arquivo terá os paramêtros de conexão do banco
 
 # Para rodar o banco 
-`psql -U postgres -h localhost -p 5434`
+`psql -U seu_host -h localhost -p sua_porta`
 
 # Para verificar conexão
-`netstat -ano | findstr 5434 `
+`netstat -ano | findstr sua_porta `
 
 # Para conectar ao banco
 `\c gestao_oficios_diarias`
