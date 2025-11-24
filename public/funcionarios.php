@@ -11,6 +11,10 @@ function validarNome($nome) {
     return preg_match('/^[A-ZÀ-Ÿa-zà-ÿ ]+$/', $nome);
 }
 
+function validarCargo($cargo) {
+    return preg_match('/^[A-ZÀ-Ÿa-zà-ÿ ]+$/', $nome);
+}
+
 function validarMatricula($mat) {
     return preg_match('/^\d{4}-\d$/', $mat);
 }
@@ -64,6 +68,7 @@ if (isset($_POST['acao'])) {
         $cargo = trim($_POST['cargo'] ?? ''); 
 
         if (!validarNome($nome)) { echo '<div class="alert alert-danger">Nome inválido! Apenas letras e espaços permitidos.</div>'; exit; }
+        if (!validarCargo($cargo)) { echo '<div class="alert alert-danger">Cargo inválido! Apenas letras e espaços permitidos.</div>'; exit; }
         if (!validarMatricula($matricula)) { echo '<div class="alert alert-danger">Matrícula inválida! Formato esperado: 0000-0.</div>'; exit; }
 
         try {        
@@ -90,6 +95,7 @@ if (isset($_POST['acao'])) {
         $cargo = trim($_POST['cargo'] ?? '');
 
         if (!validarNome($nome)) { echo '<div class="alert alert-danger">Nome inválido!</div>'; exit; }
+        if (!validarCargo($cargo)) { echo '<div class="alert alert-danger">Cargo inválido! Apenas letras e espaços permitidos.</div>'; exit; }
         if (!validarMatricula($matricula)) { echo '<div class="alert alert-danger">Matrícula inválida!</div>'; exit; }
 
         try {            
@@ -195,6 +201,10 @@ if (isset($_POST['acao'])) {
         return /^[A-ZÀ-Ÿ ]+$/.test(nome.trim());
     }
 
+    function validarCargo(cargo) {
+        return /^[A-ZÀ-Ÿ ]+$/.test(nome.trim());
+    }
+
     function validarMatricula(mat) {
         return /^\d{4}-\d$/.test(mat.trim());
     }
@@ -219,6 +229,10 @@ if (isset($_POST['acao'])) {
 
         if (!validarNome(nome)) {
             mensagemDiv.innerHTML = '<div class="alert alert-danger">Nome inválido!</div>';
+            return;
+        }
+        if (!validarCargo(cargo)) {
+            mensagemDiv.innerHTML = '<div class="alert alert-danger">Cargo inválido!</div>';
             return;
         }
         if (!validarMatricula(matricula)) {
