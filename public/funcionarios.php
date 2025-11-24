@@ -12,7 +12,7 @@ function validarNome($nome) {
 }
 
 function validarCargo($cargo) {
-    return preg_match('/^[A-ZÀ-Ÿa-zà-ÿ ]+$/', $nome);
+    return preg_match('/^[A-ZÀ-Ÿa-zà-ÿ ]+$/', $cargo);
 }
 
 function validarMatricula($mat) {
@@ -202,7 +202,7 @@ if (isset($_POST['acao'])) {
     }
 
     function validarCargo(cargo) {
-        return /^[A-ZÀ-Ÿ ]+$/.test(nome.trim());
+        return /^[A-ZÀ-Ÿ ]+$/.test(cargo.trim());
     }
 
     function validarMatricula(mat) {
