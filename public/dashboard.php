@@ -8,6 +8,7 @@ require_once __DIR__ . '/../includes/auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,7 @@ require_once __DIR__ . '/../includes/auth.php';
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1>Bem-vindo, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
-            <a href="logout.php" class="btn btn-danger">Sair (Logout)</a>
+            <a href="logout.php" class="btn btn-danger">Sair</a>
         </div>
 
         <p>Seu nível de acesso é: <strong><?php echo htmlspecialchars($_SESSION['user_nivel_acesso']); ?></strong>.</p>
@@ -83,4 +84,5 @@ require_once __DIR__ . '/../includes/auth.php';
 
     </div>
 </body>
+
 </html>
