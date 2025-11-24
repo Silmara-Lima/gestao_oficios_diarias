@@ -3,7 +3,6 @@
 - Crie uma pasta chamada 'gestao_oficios_diarias' dentro da pasta htdocs do xampp
 
 # Em seguida no postgres crie o usuário admin e a tabela
-
 `CREATE USER admin_user WITH PASSWORD 'Digiteumasenha';`
 
 - Para criar a tabela e o admin ser o administrador dela
@@ -14,7 +13,6 @@ OWNER admin_user;
 ```
 
 # Rodar o schema e municipios_pb
-
 `psql -U usuario -d gestao_oficios_diarias -p sua_porta -f sql/schema_postgres.sql`
 `psql -U usuario -d gestao_oficios_diarias -p sua_porta -f sql/municipios_pb.sql`
 
@@ -22,13 +20,11 @@ OWNER admin_user;
 
 - Esse arquivo terá os paramêtros de conexão do banco
 
-# Para rodar o banco
-
-`psql -U usuario -h localhost -p sua_porta`
+# Para rodar o banco 
+`psql -U usuario -h seu_host -p sua_porta`
 
 # Para verificar conexão
-
-`netstat -ano | findstr 5434 `
+`netstat -ano | findstr sua_porta `
 
 # Para conectar ao banco
 
@@ -39,40 +35,4 @@ OWNER admin_user;
 - Foi criado o arquivo auth para autenticar os usuários/verificar se o usuário está logado e o logout para sair do sistema
 
 # Dashboard
-
 - É a "home" para o usuário visualizar as opções de acessar ofícios, acessar diárias, acessar funcionários e configurações
-
-# CRUD de funcionários
-
-- O cadastro e edição de funcionários poderá ser feita nessa sessão, digitando nome e matrícula.
-- Há validações AJAX para evitar registros inválidos.
-
-# CRUD de ofícios
-
-- O número de ofícios é sequencial
-- O usuário pode escolher a data de emissão
-- Há um select de funcionários, mas também pode adicionar um novo caso o funcionário não esteja na lista.
-- Ao adicionar o funcionário, o usuário conseguirá visualizar esse registro na parte de funcionários
-- Há uma parte de pré-visualização para que o usuário confira os dados registrados do ofício
-- Ao final da página estará lista os ofícios, no qual o usuário poderá ver, editar os excluir.
-- Caso o ofício seja excluído, o número sequencial retorna para o número excluído.
-
-# CRUD de diárias
-
-- O número de ofícios é sequencial
-- O usuário deve preencher a data de inicio e fim da solicitação
-- Há um select de municípios, para que seja informado o destino da viagem
-- Há um select de funcionários, mas também pode adicionar um novo caso o funcionário não esteja na lista.
-- Ao adicionar o funcionário, o usuário conseguirá visualizar esse registro na parte de funcionários
-- Há uma parte de pré-visualização para que o usuário confira os dados registrados do ofício
-- Ao final da página estará lista os ofícios, no qual o usuário poderá ver, editar os excluir.
-- Caso o ofício seja excluído, o número sequencial retorna para o número excluído.
-
-# Configuracoes
-
-- permite edição dos cabeçalhos dos ofícios e diárias
-- permite edição dos rodapes dos ofícios e diárias
-- é possivel ver o cabeçalho e rodapé na pré-visualização do modulo oficios
-- é possivel ver o cabeçalho e rodapé na pré-visualização do modulo diárias
-
-
